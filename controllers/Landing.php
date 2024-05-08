@@ -1,3 +1,7 @@
 <?php
-echo "Estoy en el controlador Landing";
+class Landing{
+    public function main(){
+        require_once "views/company/index.view.php";
+    }
+}
 ?>
