@@ -10,5 +10,13 @@
         private $user_email;
         private $user_pass;
         private $user_state;
+
+        # Código Rol
+        public function setRolCode($rol_code){
+            $this->rol_code = $rol_code;
+        }
+        public function getRolCode(){
+            return $this->rol_code;
+        }
     }
 ?>
