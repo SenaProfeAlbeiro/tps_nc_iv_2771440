@@ -43,7 +43,7 @@ class Users{
         print_r($userconst);
         echo "<hr>";
 
-        // Objeto04 Constructor 09 Parámetros
+        // Objeto04 Constructor 02 Parámetros
         $user_login = new User("rodrigo@lara.com",md5("12345"));
         print_r($user_login);
         echo "<hr>";
