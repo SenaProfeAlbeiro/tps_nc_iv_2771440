@@ -20,8 +20,14 @@
             }
         }
 
-        # Constructor: Objeto 09 parámetros
+        # Constructor: Objeto 00 parámetros
         public function __construct0(){}
+
+        # Constructor: Objeto 02 parámetros
+        public function __construct2($user_email,$user_pass){
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;
+        }
 
         # Constructor: Objeto 09 parámetros
         public function __construct9($rol_code,$rol_name,$user_code,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
