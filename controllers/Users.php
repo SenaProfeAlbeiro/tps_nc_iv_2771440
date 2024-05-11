@@ -2,14 +2,15 @@
 require_once "models/User.php";
 class Users{
     public function main(){
-        // Objeto Rol
+
+        // Objeto01 Rol
         $rol = new User;
         $rol->setRolCode("01");
         echo "Código Rol: ", $rol->getRolCode(), "<hr>";
         $rol->setRolName("admin");
         echo "Nombre Rol: ", $rol->getRolName(), "<hr>";
 
-        // Objeto Usuario
+        // Objeto02 Usuario
         $user = new User;
         $user->setUserCode("user_123");
         echo "Código Usuario: ", $user->getUserCode(), "<hr>";
@@ -25,6 +26,21 @@ class Users{
         echo "Contraseña Usuario: ", $user->getUserPass(), "<hr>";
         $user->setUserState(True);
         echo "Estado Usuario: ", $user->getUserState(), "<hr>";
+
+        // Objeto03 Constructor
+        $userconst = new User(
+            "02",
+            "customer",
+            "user_567",
+            "Marinita",
+            "García",
+            "987654321",
+            "marinita@garcia.com",
+            sha1("12345"),
+            True
+        );
+        print_r($userconst);
+
     }
 }
 ?>
