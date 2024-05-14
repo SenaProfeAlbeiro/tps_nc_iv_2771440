@@ -1,14 +1,7 @@
 <?php
 require_once "models/User.php";
 class Users{
-    public function main(){
-
-        // Objeto01 Rol
-        $rol = new User;
-        $rol->setRolCode("01");
-        echo "Código Rol: ", $rol->getRolCode(), "<hr>";
-        $rol->setRolName("admin");
-        echo "Nombre Rol: ", $rol->getRolName(), "<hr>";
+    public function main(){       
 
         // Objeto02 Usuario
         $user = new User;
@@ -47,7 +40,12 @@ class Users{
         $user_login = new User("rodrigo@lara.com",md5("12345"));
         print_r($user_login);
         echo "<hr>";
-
+    }
+    // Controlador Crear Rol
+    public function createRol(){        
+        $rol = new User;        
+        $rol->setRolName("admin");
+        print_r($rol);
     }
 }
 ?>
