@@ -1,6 +1,7 @@
 <?php
     class User{
         // 1ra Parte: Atributos
+        private $dbh;
         private $rol_code;
         private $rol_name;
         private $user_code;
@@ -13,10 +14,15 @@
 
         // 2da Parte: Sobrecarga Constructores
         public function __construct(){
-            $a = func_get_args();
-            $i = func_num_args();
-            if (method_exists($this, $f = '__construct' . $i)) {
-                call_user_func_array(array($this, $f), $a);
+            try {
+                $this->dbh = DataBase::connection();
+                $a = func_get_args();
+                $i = func_num_args();
+                if (method_exists($this, $f = '__construct' . $i)) {
+                    call_user_func_array(array($this, $f), $a);
+                }
+            } catch (Exception $e) {
+                die($e->getMessage());
             }
         }
 
@@ -108,5 +114,18 @@
         }
 
         // 4ta Parte: Persistencia a la Base de Datos
+        
+        # CU03 - Registrar Rol        
+        public function createRol(){
+            try {
+                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
+                $stmt = $this->dbh->prepare($sql);                
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
     }
 ?>

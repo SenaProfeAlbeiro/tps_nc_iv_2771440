@@ -42,10 +42,10 @@ class Users{
         echo "<hr>";
     }
     // Controlador Crear Rol
-    public function createRol(){        
+    public function rolCreate(){        
         $rol = new User;        
         $rol->setRolName("admin");
-        print_r($rol);
+        $rol->createRol();        
     }
 }
 ?>
