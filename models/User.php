@@ -116,7 +116,7 @@
         // 4ta Parte: Persistencia a la Base de Datos
 
         # RF03_CU03 - Registrar Rol        
-        public function createRol(){
+        public function create_rol(){
             try {
                 $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
                 $stmt = $this->dbh->prepare($sql);                
@@ -129,7 +129,7 @@
         }
         
         # RF04_CU04 - Consultar Roles
-        public function readRol(){
+        public function read_roles(){
             try {
                 $rolList = [];
                 $sql = 'SELECT * FROM ROLES';
@@ -147,7 +147,7 @@
         }
 
         # RF05_CU05 - Obtener el Rol por el código
-        public function getRolByCode($rolCode){
+        public function getrol_bycode($rolCode){
             try {
                 $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
                 $stmt = $this->dbh->prepare($sql);
@@ -164,7 +164,7 @@
         }
 
         # RF06_CU06 - Actualizar Rol
-        public function updateRol(){
+        public function update_rol(){
             try {                
                 $sql = 'UPDATE ROLES SET
                             rol_code = :rolCode,
@@ -180,7 +180,7 @@
         }
 
         # RF07_CU07 - Eliminar Rol
-        public function deleteRol($rolCode){
+        public function delete_rol($rolCode){
             try {
                 $sql = 'DELETE FROM ROLES WHERE rol_code = :rolCode';
                 $stmt = $this->dbh->prepare($sql);
