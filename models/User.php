@@ -114,8 +114,8 @@
         }
 
         // 4ta Parte: Persistencia a la Base de Datos
-        
-        # CU03 - Registrar Rol        
+
+        # RF03_CU03 - Registrar Rol        
         public function createRol(){
             try {
                 $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
