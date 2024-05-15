@@ -61,7 +61,7 @@
         public function rolUpdate(){
             // Crear el objeto a partir del registro db, según petición
             $rol = new User;
-            $rol = $rol->getRolByCode(4);
+            $rol = $rol->getRolByCode(1);
             print_r($rol);
 
             // Actualizar el usuario en la db
