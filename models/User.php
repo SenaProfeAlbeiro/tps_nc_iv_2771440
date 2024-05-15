@@ -127,5 +127,23 @@
                 die($e->getMessage());
             }
         }
+        
+        # RF04_CU04 - Consultar Roles
+        public function readRol(){
+            try {
+                $rolList = [];
+                $sql = 'SELECT * FROM ROLES';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $rol) {                    
+                    $rolObj = new User;
+                    $rolObj->setRolCode($rol['rol_code']);
+                    $rolObj->setRolName($rol['rol_name']);
+                    array_push($rolList, $rolObj);                    
+                }                
+                return $rolList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }        
     }
 ?>
