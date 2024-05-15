@@ -163,7 +163,7 @@
             }
         }
 
-        # CU05 - Actualizar Rol
+        # RF06_CU06 - Actualizar Rol
         public function updateRol(){
             try {                
                 $sql = 'UPDATE ROLES SET
