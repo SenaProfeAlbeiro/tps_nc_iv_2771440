@@ -56,5 +56,16 @@ class Users{
         $roles = $roles->readRol();
         print_r($roles);
     }
+
+    // Controlador rolUpdate
+    public function rolUpdate(){
+        // Crear el objeto a partir del registro db, según petición
+        $rol = new User;
+        $rol = $rol->getRolByCode(4);
+        print_r($rol);
+
+        // Actualizar el usuario en la db
+
+    }
 }
 ?>
