@@ -146,7 +146,7 @@
             }
         }
 
-        # RF02_CU05 - Obtener el Rol por el código
+        # RF05_CU05 - Obtener el Rol por el código
         public function getRolByCode($rolCode){
             try {
                 $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
