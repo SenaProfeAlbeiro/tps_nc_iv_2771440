@@ -57,7 +57,7 @@
             print_r($roles);
         }
 
-        // Controlador rolUpdate
+        // Controlador Actualizar Rol
         public function rolUpdate(){
             $rolCode = 3;
             // Objeto_01. Crear el objeto a partir del registro db, según petición
@@ -69,6 +69,13 @@
             $rolUpdate->setRolCode($rolCode);
             $rolUpdate->setRolName("seller");
             $rolUpdate->updateRol();
+        }
+        
+        // Controlador Eliminar Rol
+        public function rolDelete(){
+            $rolCode = 1;
+            $rol = new User;
+            $rol->deleteRol($rolCode);
         }
     }
 ?>
