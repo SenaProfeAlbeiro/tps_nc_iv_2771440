@@ -35,6 +35,18 @@
             $this->user_pass = $user_pass;
         }
 
+        # Constructor: Objeto 08 parámetros
+        public function __construct8($rol_code,$user_code,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
+            $this->rol_code = $rol_code;
+            $this->user_code = $user_code;
+            $this->user_name = $user_name;
+            $this->user_lastname = $user_lastname;
+            $this->user_id = $user_id;
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;
+            $this->user_state = $user_state;
+        }
+
         # Constructor: Objeto 09 parámetros
         public function __construct9($rol_code,$rol_name,$user_code,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
             $this->rol_code = $rol_code;
@@ -115,11 +127,11 @@
 
         // 4ta Parte: Persistencia a la Base de Datos
 
-        # RF03_CU03 - Registrar Rol        
+        # RF03_CU03 - Registrar Rol
         public function create_rol(){
             try {
                 $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
-                $stmt = $this->dbh->prepare($sql);                
+                $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('rolName', $this->getRolName());
                 $stmt->execute();
@@ -127,19 +139,19 @@
                 die($e->getMessage());
             }
         }
-        
+
         # RF04_CU04 - Consultar Roles
         public function read_roles(){
             try {
                 $rolList = [];
                 $sql = 'SELECT * FROM ROLES';
                 $stmt = $this->dbh->query($sql);
-                foreach ($stmt->fetchAll() as $rol) {                    
+                foreach ($stmt->fetchAll() as $rol) {
                     $rolObj = new User;
                     $rolObj->setRolCode($rol['rol_code']);
                     $rolObj->setRolName($rol['rol_name']);
-                    array_push($rolList, $rolObj);                    
-                }                
+                    array_push($rolList, $rolObj);
+                }
                 return $rolList;
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -165,7 +177,7 @@
 
         # RF06_CU06 - Actualizar Rol
         public function update_rol(){
-            try {                
+            try {
                 $sql = 'UPDATE ROLES SET
                             rol_code = :rolCode,
                             rol_name = :rolName
@@ -188,7 +200,35 @@
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
-            }            
+            }
+        }
+
+        # RF08_CU08 - Registrar Usuario
+        public function create_user(){
+            try {
+                $sql = 'INSERT INTO USERS VALUES (
+                            :rolCode,
+                            :userCode,
+                            :userName,
+                            :userLastName,
+                            :userId,
+                            :userEmail,
+                            :userPass,
+                            :userState
+                        )';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('userCode', $this->getUserCode());
+                $stmt->bindValue('userName', $this->getUserName());
+                $stmt->bindValue('userLastName', $this->getUserLastName());
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPass', sha1($this->getUserPass()));
+                $stmt->bindValue('userState', $this->getUserState());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
         }
     }
 ?>
