@@ -82,16 +82,23 @@
         // Controlador Crear Usuario
         public function userCreate(){
             $user = new User(
-                1,
+                3,
                 null,
-                "Albeiro",
-                "Ramos",
-                "10235565",
-                "eramos@misena.edu.co",
+                "Vicente",
+                "Fernández",
+                "456789321",
+                "vicente_fernandez@misena.edu.co",
                 "12345",
                 1
             );
             $user->create_user();
+        }
+
+        // Controlador Consultar Usuarios
+        public function userRead(){
+            $users = new User;
+            $users = $users->read_users();
+            print_r($users);
         }
     }
 ?>

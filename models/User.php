@@ -230,5 +230,29 @@
                 die($e->getMessage());
             }
         }
+
+        # RF09_CU09 - Consultar Usuarios
+        public function read_users(){
+            try {
+                $userList = [];
+                $sql = 'SELECT * FROM USERS';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $user) {
+                    $userObj = new User;
+                    $userObj->setRolCode($user['rol_code']);
+                    $userObj->setUserCode($user['user_code']);
+                    $userObj->setUserName($user['user_name']);
+                    $userObj->setUserLastName($user['user_lastname']);
+                    $userObj->setUserId($user['user_id']);
+                    $userObj->setUserEmail($user['user_email']);
+                    $userObj->setUserPass($user['user_pass']);
+                    $userObj->setUserState($user['user_state']);
+                    array_push($userList, $userObj);
+                }
+                return $userList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
     }
 ?>
