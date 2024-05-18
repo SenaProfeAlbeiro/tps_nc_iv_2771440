@@ -277,5 +277,47 @@
                 die($e->getMessage());
             }
         }
+
+         # RF11_CU11 - Actualizar usuario
+         public function update_user(){
+            try {
+                $sql = 'UPDATE USERS SET
+                            rol_code = :rolCode,
+                            user_code = :userCode,
+                            user_name = :userName,
+                            user_lastname = :userLastName,
+                            user_id = :userId,
+                            user_email = :userEmail,
+                            user_pass = :userPass,
+                            user_state = :userState
+                        WHERE user_code = :userCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('userCode', $this->getUserCode());
+                $stmt->bindValue('userName', $this->getUserName());
+                $stmt->bindValue('userLastName', $this->getUserLastName());
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPass', sha1($this->getUserPass()));
+                $stmt->bindValue('userState', $this->getUserState());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # RF12_CU12 - Eliminar Usuario
+        public function delete_user($userCode){
+            try {
+                $sql = 'DELETE FROM USERS WHERE user_code = :userCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userCode', $userCode);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
     }
+
 ?>
