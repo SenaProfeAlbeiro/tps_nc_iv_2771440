@@ -254,5 +254,28 @@
                 die($e->getMessage());
             }
         }
+
+        # RF10_CU10 - Obtener el Usuario por el código
+        public function getuser_bycode($userCode){
+            try {
+                $sql = "SELECT * FROM USERS WHERE user_code=:userCode";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userCode', $userCode);
+                $stmt->execute();
+                $userDb = $stmt->fetch();
+                $user = new User;
+                $user->setRolCode($userDb['rol_code']);
+                $user->setUserCode($userDb['user_code']);
+                $user->setUserName($userDb['user_name']);
+                $user->setUserLastName($userDb['user_lastname']);
+                $user->setUserId($userDb['user_id']);
+                $user->setUserEmail($userDb['user_email']);
+                $user->setUserPass($userDb['user_pass']);
+                $user->setUserState($userDb['user_state']);
+                return $user;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
     }
 ?>

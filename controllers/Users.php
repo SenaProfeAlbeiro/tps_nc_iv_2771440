@@ -100,5 +100,20 @@
             $users = $users->read_users();
             print_r($users);
         }
+
+        // Controlador Actualizar Usuario
+        public function userUpdate(){
+            $userCode = 3;
+            // Objeto_01. Crear el objeto a partir del registro db, según petición
+            $user = new User;
+            $user = $user->getuser_bycode($userCode);
+            print_r($user);
+
+            // Objeto_02. Actualizar el usuario en la db, a partir del Objeto_01
+            // $rolUpdate = new User;
+            // $rolUpdate->setRolCode($rolCode);
+            // $rolUpdate->setRolName("admin");
+            // $rolUpdate->update_rol();
+        }
     }
 ?>
