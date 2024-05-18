@@ -88,7 +88,7 @@
                 "Fernández",
                 "456789321",
                 "vicente_fernandez@misena.edu.co",
-                "12345",
+                "54321",
                 1
             );
             $user->create_user();
