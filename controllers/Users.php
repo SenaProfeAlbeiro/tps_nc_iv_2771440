@@ -3,13 +3,17 @@
     class Users{
         // Controlador Principal
         public function main(){
-            echo "Estoy en el Controlador Users y método main()";
+            require_once "views/roles/admin/header.view.php";
+            require_once "views/roles/admin/admin.view.php";
+            require_once "views/roles/admin/footer.view.php";
         }
 
         // Controlador Crear Rol
         public function rolCreate(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                require_once "views/roles/admin/header.view.php";
                 require_once "views/modules/users/rol_create.view.php";
+                require_once "views/roles/admin/footer.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $rol = new User;
@@ -22,7 +26,9 @@
         public function rolRead(){
             $roles = new User;
             $roles = $roles->read_roles();
+            require_once "views/roles/admin/header.view.php";
             require_once "views/modules/users/rol_read.view.php";
+            require_once "views/roles/admin/footer.view.php";
         }
 
         // Controlador Actualizar Rol
