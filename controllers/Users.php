@@ -8,10 +8,14 @@
 
         // Controlador Crear Rol
         public function rolCreate(){
-            echo "Estoy en el Controlador Users y método rolCreate";
-            // $rol = new User;
-            // $rol->setRolName("un_error");
-            // $rol->create_rol();
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                require_once "views/modules/users/rol_create.view.php";
+            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $rol = new User;
+                $rol->setRolName("un_error");
+                $rol->create_rol();
+            }
         }
 
         // Controlador Consultar Roles
