@@ -51,7 +51,7 @@
 				<nav class="full-box nav-lateral-menu">
 					<ul>
 						<li>
-							<a href="?c=Users"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
+							<a href="?"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
 						</li>
 
 						<li>
