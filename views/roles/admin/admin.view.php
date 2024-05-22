@@ -61,7 +61,7 @@
 									<a href="?c=Users&a=rolCreate"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Rol</a>
 								</li>
 								<li>
-									<a href="client-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Consultar Roles</a>
+									<a href="?c=Users&a=rolRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Consultar Roles</a>
 								</li>
 								<li>
 									<a href="client-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Rol</a>

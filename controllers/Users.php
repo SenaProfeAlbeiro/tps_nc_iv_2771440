@@ -22,7 +22,7 @@
         public function rolRead(){
             $roles = new User;
             $roles = $roles->read_roles();
-            print_r($roles);
+            require_once "views/modules/users/rol_read.view.php";
         }
 
         // Controlador Actualizar Rol
