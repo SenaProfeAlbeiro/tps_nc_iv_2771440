@@ -52,9 +52,9 @@
 
         // Controlador Eliminar Rol
         public function rolDelete(){
-            $rolCode = 3;
             $rol = new User;
-            $rol->delete_rol($rolCode);
+            $rol->delete_rol($_GET['idRol']);
+            header("Location: ?c=Users&a=rolRead");
         }
 
         // Controlador Crear Usuario

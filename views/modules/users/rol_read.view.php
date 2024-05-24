@@ -59,7 +59,7 @@
 										</a>
 									</td>
 									<td>
-									<a href="#" class="btn btn-warning">
+									<a href="?c=Users&a=rolDelete&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-warning">
 											<i class="far fa-trash-alt"></i>
 										</a>
 									</td>
