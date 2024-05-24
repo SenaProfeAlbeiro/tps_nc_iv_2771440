@@ -17,8 +17,9 @@
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $rol = new User;
-                $rol->setRolName("un_error");
+                $rol->setRolName($_POST['rol_name']);
                 $rol->create_rol();
+                header("Location: ?c=Users&a=rolRead");
             }
         }
 
