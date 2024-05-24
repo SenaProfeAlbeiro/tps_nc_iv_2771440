@@ -47,5 +47,3 @@
 					</p>
 				</form>
 			</div>
-
-		</section>

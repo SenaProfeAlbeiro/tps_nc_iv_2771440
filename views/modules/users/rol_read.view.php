@@ -68,5 +68,3 @@
 					</ul>
 				</nav>
 			</div>
-
-		</section>
