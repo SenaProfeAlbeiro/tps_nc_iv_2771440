@@ -54,7 +54,7 @@
 									<td><?php echo $rol->getRolCode(); ?></td>
 									<td><?php echo $rol->getRolName(); ?></td>
 									<td>
-										<a href="#" class="btn btn-success">
+										<a href="?c=Users&a=rolUpdate&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-success">
 											<i class="fas fa-sync-alt"></i>
 										</a>
 									</td>
