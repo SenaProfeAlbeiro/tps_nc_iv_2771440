@@ -14,6 +14,8 @@
             call_user_func(array($controller, $action));
             require_once "views/company/footer.view.php";
         } elseif (!empty($_SESSION['session'])) {
+            require_once "models/User.php";
+            $profile = unserialize($_SESSION['profile']);
             require_once "views/roles/admin/header.view.php";
             call_user_func(array($controller, $action));
             require_once "views/roles/admin/footer.view.php";

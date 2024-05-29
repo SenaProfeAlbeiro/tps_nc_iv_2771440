@@ -17,6 +17,7 @@
                     $active = $profile->getUserState();
                     if ($active != 0) {
                         $_SESSION['session'] = $profile->getRolName();
+                        $_SESSION['profile'] = serialize($profile);
                         header("Location:?c=Dashboard");
                     } else {
                         $message = "El Usuario NO está activo";
