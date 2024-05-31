@@ -63,21 +63,6 @@
 						</li>
 
 						<li>
-							<a href="#" class="nav-btn-submenu "><i class="fas fa-user-graduate fa-fw"></i> &nbsp; Roles <i class="fas fa-chevron-down"></i></a>
-							<ul class="">
-								<li>
-									<a href="?c=Users&a=rolCreate"><i class="fas fa-plus fa-fw"></i> &nbsp; Registrar Rol</a>
-								</li>
-								<li>
-									<a href="?c=Users&a=rolRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Consultar Roles</a>
-								</li>
-								<li>
-									<a href="#"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Rol</a>
-								</li>
-							</ul>
-						</li>
-
-						<li>
 							<a href="#" class=""><i class="fas fa-users fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
 							<ul class="">
 								<li>
